@@ -1,0 +1,49 @@
+============================================================
+TEST 1: Standard Multi-step Math & Reasoning
+============================================================
+
+--- Starting Agent Run: 'Calculate (1450 + 3550) * 0.18 and then tell me what 20% of that result is.' ---
+
+[Step 1/6]
+Tool: calculator | Observation len: 5 | Total budget used: 5/30000
+
+[Step 2/6]
+Tool: calculator | Observation len: 5 | Total budget used: 10/30000
+
+[Step 3/6]
+
+Final Answer:
+The result is **180**.
+
+============================================================
+TEST 2: Guard 2 (Large Tool Output Truncation)
+============================================================
+
+--- Starting Agent Run: 'Read this file and summarize the first few records: C:\COLLEGE\AI-Fluency-Training-7376241CS208\Day3\Assessment\large_page.html' ---
+
+[Step 1/6]
+[GUARD 2 TRIGGERED] Output truncated from 38389 to 1500 chars.
+Tool: read_webpage | Observation len: 1548 | Total budget used: 1548/30000
+
+[Step 2/6]
+
+Final Answer:
+**Summary of the first few records in `large_page.html`:**
+
+- The file contains a long list of JSON‑style “records”, each with a unique `Record ID` and a `payload`.
+- The *first records* (IDs 0–9) all have the same placeholder text in their payload:
+  ```
+  "Sample test data payload for testing tool output size limits."
+  ```
+- These records are identical and are repeated throughout the file; they were included to exercise the system’s ability to handle large output sizes.
+
+============================================================
+TEST 3: Direct Knowledge (No Tools Needed)
+============================================================
+
+--- Starting Agent Run: 'Explain what an AI agent loop is in two short sentences.' ---
+
+[Step 1/6]
+
+Final Answer:
+An AI agent loop is the continuous cycle of sensing the environment, deciding on an action, executing that action, and learning from the outcome. It enables the agent to adapt its behavior over time by iteratively refining its internal model based on feedback.
